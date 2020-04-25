@@ -1,0 +1,4 @@
+<app-torrent-list-item *ngFor="let torrent of torrents | filter: 'name':filter; let i = index"
+  [index]="i"
+  [torrent]="torrent"
+></app-torrent-list-item>
