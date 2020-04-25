@@ -11,6 +11,7 @@ import { TransmissionMockClient } from 'src/app/services/transmission.mock.clien
 export class SidebarComponent {
 
   @Input() folders: string[] = [];
+  @Input() statuses: any;
 
   constructor() { }
 }

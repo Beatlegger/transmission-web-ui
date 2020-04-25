@@ -7,8 +7,53 @@
   <ul class="nav flex-column">
     <li class="nav-item" *ngFor="let folder of folders">
       <a class="nav-link" href="#">
-        <i class="fas fa-folder feather feather-file-text"></i> {{folder}}
+        <i class="fas fa-folder feather feather-file-text"></i> {{ folder }}
       </a>
-    </li> 
+    </li>
   </ul>
+  <h6
+    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted"
+  >
+    <span>Status <!-- ({{statuses.all}}) --></span>
+  </h6>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-exclamation-triangle text-danger feather feather-file-text"></i> {{statuses.faulted}} Faulted
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-spinner feather feather-file-text"></i> {{statuses.queued}} Queued
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="far fa-stop-circle feather feather-file-text"></i> {{statuses.stopped}} Stopped 
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-circle-notch feather feather-file-text"></i> {{statuses.checking}} Checking
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="far fa-arrow-alt-circle-down feather feather-file-text"></i> {{statuses.downloading}} Downloading
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="far fa-arrow-alt-circle-up feather feather-file-text"></i> {{statuses.seeding}} Seeding
+      </a>
+    </li>
+  </ul>
+  <!--  <i class="far fa-stop-circle" title="Torrent is stopped" *ngSwitchCase="0"></i>
+      <i class="fas fa-spinner fa-pulse" title="Queued to check files" *ngSwitchCase="1"></i>
+      <i class="fas fa-circle-notch fa-spin" title="Checking files" *ngSwitchCase="2"></i>
+      <i class="fas fa-spinner fa-pulse" title="Queued to download" *ngSwitchCase="3"></i>
+      <i class="far fa-arrow-alt-circle-down" title="Downloading" *ngSwitchCase="4"></i>
+      <i class="fas fa-spinner fa-pulse" title="Queued to seed" *ngSwitchCase="5"></i>
+      <i class="far fa-arrow-alt-circle-up" title="Seeding" *ngSwitchCase="6"></i>
+      <i class="far fa-question-circle" title="Unknown state" *ngSwitchDefault></i> -->
 </div>

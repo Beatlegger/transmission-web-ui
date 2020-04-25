@@ -42,6 +42,15 @@ export class AppComponent {
   torrents: TorrentInformation[] = [];
   torrentsFilter: string = '';
   folders: string[] = [];
+  statuses: any = {
+    all: 0,
+    faulted: 0,
+    queued: 0,
+    checking: 0,
+    stopped: 0,
+    downloading: 0,
+    seeding: 0
+  };
   error: string; //todo: error type
   torrentsSubscription: Subscription;
 
@@ -79,6 +88,15 @@ export class AppComponent {
 
     this.torrents = torrents;
     this.folders = folders;
+    this.statuses = {
+      all: this.torrents.length,
+      faulted: this.torrents.filter(t=>t.error).length,
+      queued: this.torrents.filter(t=> [1, 3, 5].includes(t.status) && t.error === 0).length,
+      stopped: this.torrents.filter(t=> t.status === 0 && t.error === 0).length,
+      checking: this.torrents.filter(t=> t.status === 2 && t.error === 0).length,
+      downloading: this.torrents.filter(t=> t.status === 4 && t.error === 0).length,
+      seeding: this.torrents.filter(t=> t.status === 6 && t.error === 0).length,
+    };
   }
 
   mergeData(torrents: TorrentInformation[]) {
@@ -100,6 +118,16 @@ export class AppComponent {
 
     //update folders
     this.folders = folders;
+
+    this.statuses = {
+      all: this.torrents.length,
+      faulted: this.torrents.filter(t=>t.error).length,
+      queued: this.torrents.filter(t=> [1, 3, 5].includes(t.status) && t.error === 0).length,
+      stopped: this.torrents.filter(t=> t.status === 0 && t.error === 0).length,
+      checking: this.torrents.filter(t=> t.status === 2 && t.error === 0).length,
+      downloading: this.torrents.filter(t=> t.status === 4 && t.error === 0).length,
+      seeding: this.torrents.filter(t=> t.status === 6 && t.error === 0).length,
+    };
   }
 
   searchValueChange(srchValue: any) {
