@@ -1,0 +1,105 @@
+<div
+  [ngClass]="{
+    'row p-1 m-0 align-items-center': true,
+    'bg-light': index % 2 === 0,
+    'bg-dark text-white': mouseover
+  }"
+  (mouseover)="mouseOverHandler(true)"
+  (mouseleave)="mouseOverHandler(false)"
+>
+  <div class="col col-lg-8 text-truncate">
+    <ng-container *ngIf="!torrent.error" [ngSwitch]="torrent.status">
+      <i
+        class="far fa-stop-circle"
+        title="Torrent is stopped"
+        *ngSwitchCase="0"
+      ></i>
+      <i
+        class="fas fa-spinner fa-pulse"
+        title="Queued to check files"
+        *ngSwitchCase="1"
+      ></i>
+      <i
+        class="fas fa-circle-notch fa-spin"
+        title="Checking files"
+        *ngSwitchCase="2"
+      ></i>
+      <i
+        class="fas fa-spinner fa-pulse"
+        title="Queued to download"
+        *ngSwitchCase="3"
+      ></i>
+      <i
+        class="far fa-arrow-alt-circle-down"
+        title="Downloading"
+        *ngSwitchCase="4"
+      ></i>
+      <i
+        class="fas fa-spinner fa-pulse"
+        title="Queued to seed"
+        *ngSwitchCase="5"
+      ></i>
+      <i
+        class="far fa-arrow-alt-circle-up"
+        title="Seeding"
+        *ngSwitchCase="6"
+      ></i>
+      <i
+        class="far fa-question-circle"
+        title="Unknown state"
+        *ngSwitchDefault
+      ></i>
+    </ng-container>
+    <i
+      *ngIf="torrent.error"
+      class="fas fa-exclamation-triangle text-danger"
+      [title]="torrent.errorString"
+    ></i>
+    {{ torrent.name }}
+  </div>
+  <div class="col-auto p-0 m-0">
+    <i class="fas fa-long-arrow-alt-down text-success"></i>
+  </div>
+  <div class="col px-1 m-0">{{ torrent.rateDownload | byte }}/s</div>
+  <div class="col-auto p-0 m-0">
+    <i class="fas fa-long-arrow-alt-up text-danger"></i>
+  </div>
+  <div class="col px-1 m-0">{{ torrent.rateUpload | byte }}/s</div>
+  <div class="col align-middle">
+    <div class="progress">
+      <div
+        class="progress-bar bg-success"
+        role="progressbar"
+        [style.width]="torrent.percentDone | percent"
+        [attr.aria-valuenow]="torrent.percentDone * 100"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+  <div
+    class="col col-auto align-middle"
+    [style.visibility]="mouseover ? 'visible' : 'hidden'"
+  >
+    <button
+      type="button"
+      [ngClass]="{
+        'btn btn-sm mx-1': true,
+        'btn-light': torrent.status > 0,
+        'btn-success': torrent.status === 0
+      }"
+      [title]="torrent.status > 0 ? 'Stop' : 'Start'"
+    >
+      <i
+        [ngClass]="{
+          'mx-1 fas': true,
+          'fa-stop': torrent.status > 0,
+          'fa-play': torrent.status === 0
+        }"
+      ></i>
+    </button>
+    <button type="button" class="btn btn-danger btn-sm mx-1" title="Delete">
+      <i class="far fa-trash-alt mx-1"></i>
+    </button>
+  </div>
+</div>

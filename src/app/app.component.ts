@@ -66,7 +66,7 @@ export class AppComponent {
     this.torrentsSubscription = this.transmissionService
       .torrentGet({ ids: 'recently-active', fields: this.FIELDS })
       .pipe(
-        repeatWhen(s=>s.pipe(delay(1000)))
+        repeatWhen(s=>s.pipe(delay(5000)))
       )
       .subscribe(
         (torrents) => {

@@ -14,5 +14,12 @@ export class TorrentListItemComponent {
   @Input()
   index: number;
 
+  mouseover: boolean = false;
+
   constructor() { }
+
+  mouseOverHandler(mouseover: boolean)
+  {
+    this.mouseover = mouseover;
+  }
 }

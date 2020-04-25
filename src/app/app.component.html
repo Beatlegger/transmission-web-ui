@@ -5,7 +5,15 @@
       <app-sidebar [statuses]="statuses" [folders]="folders"></app-sidebar>
     </div>
     <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-0">
-      <app-torrent-list [filter]="torrentsFilter" [torrents]="torrents"></app-torrent-list>
+      <!--       <app-torrent-list [filter]="torrentsFilter" [torrents]="torrents"></app-torrent-list> -->
+      <app-torrent-list-item
+        *ngFor="
+          let torrent of torrents | filter: 'name':torrentsFilter;
+          let i = index
+        "
+        [index]="i"
+        [torrent]="torrent"
+      ></app-torrent-list-item>
     </main>
   </div>
 </div>
