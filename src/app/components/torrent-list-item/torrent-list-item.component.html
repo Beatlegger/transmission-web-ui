@@ -55,7 +55,7 @@
       class="fas fa-exclamation-triangle text-danger"
       [title]="torrent.errorString"
     ></i>
-    {{ torrent.name }}
+    <span class="mx-1" [title]="torrent.name">{{ torrent.name }}</span>
   </div>
   <div class="col-auto p-0 m-0">
     <i class="fas fa-long-arrow-alt-down text-success"></i>
@@ -77,8 +77,7 @@
       ></div>
     </div>
   </div>
-  <div
-    class="col col-auto align-middle"
+  <div class="col col-auto align-middle"
     [style.visibility]="mouseover ? 'visible' : 'hidden'"
   >
     <button
