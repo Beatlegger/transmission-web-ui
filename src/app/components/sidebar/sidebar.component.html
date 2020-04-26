@@ -6,8 +6,13 @@
   </h6>
   <ul class="nav flex-column">
     <li class="nav-item" *ngFor="let folder of folders">
-      <a class="nav-link" href="#">
-        <i class="fas fa-folder feather feather-file-text"></i> {{ folder }}
+      <a [ngClass]="{'nav-link': true, 'active': folder == selectedFolder}"  href="#" (click)="onFolderClick(folder)">
+        <i [ngClass]="{
+          'fas feather feather-file-text': true,
+          'fa-folder': folder != selectedFolder,
+          'fa-folder-open': folder == selectedFolder
+        }
+        "></i> {{ folder }}
       </a>
     </li>
   </ul>
@@ -18,42 +23,34 @@
   </h6>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'faulted'}" href="#" (click)="onStatusClick('faulted')">
         <i class="fas fa-exclamation-triangle text-danger feather feather-file-text"></i> {{statuses.faulted}} Faulted
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'queued'}" href="#" (click)="onStatusClick('queued')">
         <i class="fas fa-spinner feather feather-file-text"></i> {{statuses.queued}} Queued
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'stopped'}" href="#" (click)="onStatusClick('stopped')">
         <i class="far fa-stop-circle feather feather-file-text"></i> {{statuses.stopped}} Stopped 
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'checking'}" href="#" (click)="onStatusClick('checking')">
         <i class="fas fa-circle-notch feather feather-file-text"></i> {{statuses.checking}} Checking
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'downloading'}" href="#" (click)="onStatusClick('downloading')">
         <i class="far fa-arrow-alt-circle-down feather feather-file-text"></i> {{statuses.downloading}} Downloading
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'seeding'}" href="#" (click)="onStatusClick('seeding')">
         <i class="far fa-arrow-alt-circle-up feather feather-file-text"></i> {{statuses.seeding}} Seeding
       </a>
     </li>
   </ul>
-  <!--  <i class="far fa-stop-circle" title="Torrent is stopped" *ngSwitchCase="0"></i>
-      <i class="fas fa-spinner fa-pulse" title="Queued to check files" *ngSwitchCase="1"></i>
-      <i class="fas fa-circle-notch fa-spin" title="Checking files" *ngSwitchCase="2"></i>
-      <i class="fas fa-spinner fa-pulse" title="Queued to download" *ngSwitchCase="3"></i>
-      <i class="far fa-arrow-alt-circle-down" title="Downloading" *ngSwitchCase="4"></i>
-      <i class="fas fa-spinner fa-pulse" title="Queued to seed" *ngSwitchCase="5"></i>
-      <i class="far fa-arrow-alt-circle-up" title="Seeding" *ngSwitchCase="6"></i>
-      <i class="far fa-question-circle" title="Unknown state" *ngSwitchDefault></i> -->
 </div>

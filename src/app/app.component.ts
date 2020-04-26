@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { TransmissionMockClient } from './services/transmission.mock.client';
 import { TorrentInformation } from './services/transmission.client';
 import { repeat, delay, repeatWhen } from 'rxjs/operators';
+import { FilterModel } from './models/filter.model';
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,12 @@ export class AppComponent {
 
   title = 'transmission-web-ui';
   torrents: TorrentInformation[] = [];
+  filter: FilterModel = {
+    folder: '',
+    name: '',
+    status: ''
+  };
+
   torrentsFilter: string = '';
   folders: string[] = [];
   statuses: any = {
@@ -116,6 +123,8 @@ export class AppComponent {
       else this.torrents.splice(prevTorrentIndex, 1, newTorrent);
     });
 
+    this.torrents = <TorrentInformation[]>Object.assign([], this.torrents);
+
     //update folders
     this.folders = folders;
 
@@ -130,8 +139,16 @@ export class AppComponent {
     };
   }
 
-  searchValueChange(srchValue: any) {
-    this.torrentsFilter = srchValue;
+  filterNameChange(name: string) {
+    this.filter = { ...this.filter, name: name };
+  }
+
+  filterStatusChange(status: string) {
+    this.filter = { ...this.filter, status}
+  }
+
+  filterFolderChange(folder: string) {
+    this.filter = { ...this.filter, folder}
   }
 
   ngOnDestroy(): void {

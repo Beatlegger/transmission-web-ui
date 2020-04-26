@@ -60,11 +60,11 @@
   <div class="col-auto p-0 m-0">
     <i class="fas fa-long-arrow-alt-down text-success"></i>
   </div>
-  <div class="col px-1 m-0">{{ torrent.rateDownload | byte }}/s</div>
+  <div class="col px-1 m-0 text-truncate">{{ torrent.rateDownload | byte }}/s</div>
   <div class="col-auto p-0 m-0">
     <i class="fas fa-long-arrow-alt-up text-danger"></i>
   </div>
-  <div class="col px-1 m-0">{{ torrent.rateUpload | byte }}/s</div>
+  <div class="col px-1 m-0 text-truncate">{{ torrent.rateUpload | byte }}/s</div>
   <div class="col align-middle">
     <div class="progress">
       <div

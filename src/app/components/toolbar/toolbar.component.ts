@@ -7,13 +7,13 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 })
 export class ToolbarComponent {
 
-  @Output() searchChangeEvent = new EventEmitter<string>()
+  @Output() filterNameChangeEvent = new EventEmitter<string>()
   
   constructor() { 
     this.searchChanged = this.searchChanged.bind(this);
   }
 
   searchChanged(event: string) {
-    this.searchChangeEvent.next(event);
+    this.filterNameChangeEvent.next(event);
   }
 }
