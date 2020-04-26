@@ -1,10 +1,10 @@
-<app-toolbar (filterNameChangeEvent)="filterNameChange($event)"></app-toolbar>
+<app-toolbar (onSearchChange)="onSearchChanged($event)"></app-toolbar>
 <div class="container-fluid">
   <div class="row">
     <div class="col col-md-2 d-none d-md-block bg-light sidebar">
       <app-sidebar
-        (selectedFolderChangeEvent)="filterFolderChange($event)"
-        (selectedStatusChangeEvent)="filterStatusChange($event)"
+        (onSelectFolderEvent)="onFilterFolderChanged($event)"
+        (onSelectStatusEvent)="onFilterStatusChanged($event)"
         [statuses]="statuses"
         [folders]="folders"
       ></app-sidebar>

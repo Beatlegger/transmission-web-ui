@@ -16,18 +16,18 @@ export class SidebarComponent {
   selectedFolder: string;
   selectedStatus: string;
 
-  @Output() selectedFolderChangeEvent = new EventEmitter<string>()
-  @Output() selectedStatusChangeEvent = new EventEmitter<string>()
+  @Output() onSelectFolderEvent = new EventEmitter<string>()
+  @Output() onSelectStatusEvent = new EventEmitter<string>()
 
   constructor() { }
 
   onFolderClick(folder: string) {
     this.selectedFolder = this.selectedFolder == folder ? '' : folder;
-    this.selectedFolderChangeEvent.emit(this.selectedFolder);
+    this.onSelectFolderEvent.emit(this.selectedFolder);
   }
 
   onStatusClick(status: string) {
     this.selectedStatus = this.selectedStatus == status ? '' : status;
-    this.selectedStatusChangeEvent.emit(this.selectedStatus);
+    this.onSelectStatusEvent.emit(this.selectedStatus);
   }
 }

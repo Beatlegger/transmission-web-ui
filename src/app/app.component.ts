@@ -139,15 +139,15 @@ export class AppComponent {
     };
   }
 
-  filterNameChange(name: string) {
+  onSearchChanged(name: string) {
     this.filter = { ...this.filter, name: name };
   }
 
-  filterStatusChange(status: string) {
+  onFilterStatusChanged(status: string) {
     this.filter = { ...this.filter, status}
   }
 
-  filterFolderChange(folder: string) {
+  onFilterFolderChanged(folder: string) {
     this.filter = { ...this.filter, folder}
   }
 
