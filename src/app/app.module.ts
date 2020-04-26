@@ -10,6 +10,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BytePipe } from './pipes/byte.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { FolderPipe } from './pipes/folder.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     AppComponent,
     BytePipe,
     FilterPipe,
+    FolderPipe,
   ],
   imports: [
     BrowserModule,

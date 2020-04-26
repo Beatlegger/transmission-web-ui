@@ -7,10 +7,8 @@ import { FilterModel } from '../models/filter.model';
 })
 export class FilterPipe implements PipeTransform {
   transform(torrents: TorrentInformation[], filter: FilterModel) : TorrentInformation[] {
-    //filter by name
     var torrentsResult = torrents.filter(torrent => torrent.name.toLowerCase().indexOf(filter.name.toLowerCase()) !== -1);
     
-    //filter by status
     if(filter.status)
     {
       switch(filter.status) {
@@ -38,14 +36,11 @@ export class FilterPipe implements PipeTransform {
           torrentsResult = torrentsResult.filter(torrent => [6].includes(torrent.status) && torrent.error == 0); 
           break;
         }
-        //...
-      }
-      
+      }   
     }
 
-    //filter by folder
-    if(filter.folder.length)
-      torrentsResult = torrentsResult.filter(torrent => filter.folder.includes(torrent.downloadDir.split('/').reverse()[0]));
+    if(filter.folder)
+      torrentsResult = torrentsResult.filter(torrent => torrent.downloadDir == filter.folder);
     
     return torrentsResult;
   }

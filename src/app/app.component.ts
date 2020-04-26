@@ -89,7 +89,7 @@ export class AppComponent {
   initData(torrents: TorrentInformation[]) {
     const folders =
       this.torrents
-        .map((t) => t.downloadDir.split('/').reverse()[0])
+        .map((t) => t.downloadDir)
         .filter((v, i, a) => a.indexOf(v) === i)
         .sort() || [];
 
@@ -109,7 +109,7 @@ export class AppComponent {
   mergeData(torrents: TorrentInformation[]) {
     const folders =
       this.torrents
-        .map((t) => t.downloadDir.split('/').reverse()[0])
+        .map((t) => t.downloadDir)
         .filter((v, i, a) => a.indexOf(v) === i)
         .sort() || [];
 

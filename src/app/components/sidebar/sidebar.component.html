@@ -6,13 +6,13 @@
   </h6>
   <ul class="nav flex-column">
     <li class="nav-item" *ngFor="let folder of folders">
-      <a [ngClass]="{'nav-link': true, 'active': folder == selectedFolder}"  href="#" (click)="onFolderClick(folder)">
+      <a [title]="folder" [ngClass]="{'nav-link': true, 'active': folder == selectedFolder}"  href="#" (click)="onFolderClick(folder)">
         <i [ngClass]="{
           'fas feather feather-file-text': true,
           'fa-folder': folder != selectedFolder,
           'fa-folder-open': folder == selectedFolder
         }
-        "></i> {{ folder }}
+        "></i> {{ folder | folder }}
       </a>
     </li>
   </ul>
