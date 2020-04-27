@@ -11,6 +11,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BytePipe } from './pipes/byte.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FolderPipe } from './pipes/folder.pipe';
+import { StatusbarComponent } from './components/statusbar/statusbar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FolderPipe } from './pipes/folder.pipe';
     BytePipe,
     FilterPipe,
     FolderPipe,
+    StatusbarComponent,
   ],
   imports: [
     BrowserModule,

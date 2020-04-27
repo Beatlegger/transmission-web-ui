@@ -1,3 +1,4 @@
+
 <div
   [ngClass]="{
     'row p-1 m-0 align-items-center': true,
@@ -7,6 +8,7 @@
   (mouseover)="mouseOverHandler(true)"
   (mouseleave)="mouseOverHandler(false)"
 >
+  <!--   <input type="checkbox" class="mx-1"/> -->
   <div class="col col-lg-8 text-truncate">
     <ng-container *ngIf="!torrent.error" [ngSwitch]="torrent.status">
       <i
@@ -77,7 +79,7 @@
       ></div>
     </div>
   </div>
-  <div class="col col-auto align-middle"
+<!--   <div class="col col-auto align-middle"
     [style.visibility]="mouseover ? 'visible' : 'hidden'"
   >
     <button
@@ -100,5 +102,5 @@
     <button type="button" class="btn btn-danger btn-sm mx-1" title="Delete">
       <i class="far fa-trash-alt mx-1"></i>
     </button>
-  </div>
+  </div> -->
 </div>
