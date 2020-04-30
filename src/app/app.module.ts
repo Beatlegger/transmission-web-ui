@@ -12,6 +12,7 @@ import { BytePipe } from './pipes/byte.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FolderPipe } from './pipes/folder.pipe';
 import { StatusbarComponent } from './components/statusbar/statusbar.component';
+import { TorrentInfoComponent } from './components/torrent-info/torrent-info.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StatusbarComponent } from './components/statusbar/statusbar.component';
     FilterPipe,
     FolderPipe,
     StatusbarComponent,
+    TorrentInfoComponent,
   ],
   imports: [
     BrowserModule,

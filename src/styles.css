@@ -27,7 +27,7 @@ body {
     top: 0;
     height: calc(100vh - 48px);
     padding-top: .5rem;
-    padding-bottom: 24px;
+    padding-bottom: 54px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
@@ -69,13 +69,13 @@ body {
   
   [role="main"] {
     padding-top: 156px; /* Space for fixed navbar */
-    padding-bottom: 24px;
+    padding-bottom: 54px;
   }
   
   @media (min-width: 768px) {
     [role="main"] {
       padding-top: 56px; /* Space for fixed navbar */
-      padding-bottom: 24px;
+      padding-bottom: 54px;
     }
   }
   
