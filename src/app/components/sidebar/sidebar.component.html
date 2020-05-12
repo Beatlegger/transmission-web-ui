@@ -1,55 +1,50 @@
-<div class="sidebar-sticky text-truncate">
-  <h6
-    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted"
-  >
+<div>
+  
+  <!-- Section -->
+  <h6>
     <span>Folders</span>
   </h6>
-  <ul class="nav flex-column">
-    <li class="nav-item" *ngFor="let folder of folders">
-      <a [title]="folder" [ngClass]="{'nav-link': true, 'active': folder == selectedFolder}"  href="#" (click)="onFolderClick(folder)">
-        <i [ngClass]="{
-          'fas feather feather-file-text': true,
-          'fa-folder': folder != selectedFolder,
-          'fa-folder-open': folder == selectedFolder
-        }
-        "></i> {{ folder | folder }}
+  <ul>
+    <li *ngFor="let folder of folders">
+      <a [title]="folder" (click)="onFolderClick(folder)" href="#">
+        {{ folder | folder }}
       </a>
     </li>
   </ul>
-  <h6
-    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted"
-  >
-    <span>Status <!-- ({{statuses.all}}) --></span>
+
+  <!-- Section -->
+  <h6>
+    <span>Status</span>
   </h6>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'faulted'}" href="#" (click)="onStatusClick('faulted')">
-        <i class="fas fa-exclamation-triangle text-danger feather feather-file-text"></i> {{statuses.faulted}} Faulted
+  <ul>
+    <li>
+      <a href="#" (click)="onStatusClick('faulted')">
+        {{ statuses.faulted }} Faulted
       </a>
     </li>
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'queued'}" href="#" (click)="onStatusClick('queued')">
-        <i class="fas fa-spinner feather feather-file-text"></i> {{statuses.queued}} Queued
+    <li>
+      <a href="#" (click)="onStatusClick('queued')">
+        {{ statuses.queued }} Queued
       </a>
     </li>
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'stopped'}" href="#" (click)="onStatusClick('stopped')">
-        <i class="far fa-stop-circle feather feather-file-text"></i> {{statuses.stopped}} Stopped 
+    <li>
+      <a href="#" (click)="onStatusClick('stopped')">
+        {{ statuses.stopped }} Stopped
       </a>
     </li>
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'checking'}" href="#" (click)="onStatusClick('checking')">
-        <i class="fas fa-circle-notch feather feather-file-text"></i> {{statuses.checking}} Checking
+    <li>
+      <a href="#" (click)="onStatusClick('checking')">
+        {{ statuses.checking }} Checking
       </a>
     </li>
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'downloading'}" href="#" (click)="onStatusClick('downloading')">
-        <i class="far fa-arrow-alt-circle-down feather feather-file-text"></i> {{statuses.downloading}} Downloading
+    <li>
+      <a href="#" (click)="onStatusClick('downloading')">
+        {{ statuses.downloading }} Downloading
       </a>
     </li>
-    <li class="nav-item">
-      <a [ngClass]="{'nav-link': true, 'active': selectedStatus == 'seeding'}" href="#" (click)="onStatusClick('seeding')">
-        <i class="far fa-arrow-alt-circle-up feather feather-file-text"></i> {{statuses.seeding}} Seeding
+    <li>
+      <a href="#" (click)="onStatusClick('seeding')">
+        {{ statuses.seeding }} Seeding
       </a>
     </li>
   </ul>

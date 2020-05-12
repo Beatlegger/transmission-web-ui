@@ -1,7 +1,7 @@
 <app-toolbar (onSearchChange)="onSearchChanged($event)"></app-toolbar>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col col-md-2 d-none d-md-block bg-light sidebar">
+<div>
+  <div>
+    <div>
       <app-sidebar
         (onSelectFolderEvent)="onFilterFolderChanged($event)"
         (onSelectStatusEvent)="onFilterStatusChanged($event)"
@@ -9,7 +9,7 @@
         [folders]="folders"
       ></app-sidebar>
     </div>
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-0">
+    <main role="main">
       <app-torrent-list-item
         *ngFor="let torrent of torrents | filter: filter; let i = index"
         [index]="i"
